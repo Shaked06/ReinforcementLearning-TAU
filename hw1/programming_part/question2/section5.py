@@ -11,7 +11,7 @@ if __name__ == "__main__":
     num_episode_arr = np.zeros(max_iterations)
 
     for i in range(max_iterations):
-        num_episode_arr[i] = random_search_200(env, max_reward=200)
+        num_episode_arr[i] = random_search_200(env)
         if i % 100 == 0:
             print(f"Iteration #{i}")
 

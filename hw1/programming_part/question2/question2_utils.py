@@ -21,6 +21,11 @@ def hist_plot(values, title, file_name):
 
 
 def estimate_agent_200(env):
+    """
+        estimate the agent over an episode and return its weights and rewards
+        episode: until the agent is terminated or reach to rewards of 200
+    """
+
     observation, info = env.reset(seed=42)
     total_reward = 0
     w = np.random.uniform(-1, 1, size=4)
@@ -43,6 +48,9 @@ def estimate_agent_200(env):
 
 
 def estimate_agent(env):
+    """
+        estimate the agent until the process terminated
+    """
     observation, info = env.reset(seed=42)
     total_reward = 0
     w = np.random.uniform(-1, 1, size=4)
@@ -63,6 +71,9 @@ def estimate_agent(env):
 
 
 def random_search(env, max_iterations):
+    """
+        random searching the weights that return the maximum rewards
+    """
     weights = np.zeros((max_iterations, 4))
     rewards = np.zeros(max_iterations)
 
@@ -76,11 +87,16 @@ def random_search(env, max_iterations):
     return weights, rewards
 
 
-def random_search_200(env, max_reward):
+def random_search_200(env):
+    """
+        calculate the number of episodes it takes to reach to rewards of 200
+        using random weights
 
+        episode: until the agent is terminated or reach to rewards of 200
+    """
     curr_reward = 0
     episode_num = 0
-    while curr_reward < max_reward:
+    while curr_reward < 200:
         curr_w, curr_reward = estimate_agent(env)
         episode_num += 1
 
