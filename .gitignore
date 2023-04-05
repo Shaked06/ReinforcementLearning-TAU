@@ -1,0 +1,5 @@
+# ignore all .a files
+*.docx
+
+# ignore all files in any directory named build
+2020B/
