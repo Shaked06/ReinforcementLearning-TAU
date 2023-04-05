@@ -3,3 +3,6 @@
 
 # ignore all files in any directory named build
 2020B/
+
+#
+*.zip
