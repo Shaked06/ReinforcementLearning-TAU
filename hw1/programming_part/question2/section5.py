@@ -11,11 +11,9 @@ if __name__ == "__main__":
     num_episode_arr = np.zeros(max_iterations)
 
     for i in range(max_iterations):
-        num_episode_arr[i] = random_search_200(env)
-        if i % 100 == 0:
-            print(f"Iteration #{i}")
+        _, _, num_episode_arr[i] = random_search(env, 10000)
 
-    print("\n------ DONE ------ \n")
-
-    hist_plot(num_episode_arr, title=f"Histogram of Random Search \n Mean of episodes {np.mean(num_episode_arr)}",
+    hist_plot(num_episode_arr, title=f"Histogram of Random Search \n Mean of episodes Number {np.mean(num_episode_arr)}",
               file_name="histogram-episodes-number")
+
+    env.close()

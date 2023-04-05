@@ -6,9 +6,8 @@ from question2_utils import *
 
 if __name__ == "__main__":
     env = gym.make("CartPole-v0", render_mode="human")
-    w, total_reward = estimate_agent_200(env)
+    w, total_reward = estimate_agent(env)
 
+    env.close()
 
-env.close()
-
-print(f"Total Reward = {total_reward}")
+    print(f"Total Reward = {total_reward}")

@@ -6,13 +6,10 @@ from question2_utils import *
 
 
 if __name__ == "__main__":
-    env = gym.make("CartPole-v1")
+    env = gym.make("CartPole-v0")
 
     max_iterations = 10000
-    weights, rewards = random_search(env, max_iterations)
+    best_w, best_reward, _ = random_search(env, max_iterations)
 
-    print("\n------ DONE ------ \n")
-
-    best_reward = np.max(rewards)
-    best_w = weights[np.argmax(rewards), :]
+    env.close()
     print(f"Total Reward = {best_reward}   \nWeights = {best_w}")
